@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Space Between Us</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,400&family=Pinyon+Script&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="fx-layer noise"></div>
+    <div class="fx-layer vignette"></div>
+    <div class="fx-layer particles" id="particles"></div>
+    
+    <div class="light-source glow-warm"></div>
+    <div class="light-source glow-pulse" id="pulse-light"></div>
+    
+    <div class="kiss-bloom" id="kiss-bloom"></div>
+
+    <div id="floating-container" class="fx-layer pointer-none"></div>
+    <div id="stuck-container" class="fx-layer pointer-none"></div>
+
+    <main class="stage">
+        
+        <div class="content-wrapper" id="intro-content">
+            <h1 id="text-display" class="hero-text"></h1>
+            <p id="sub-text" class="sub-text"></p>
+        </div>
+
+        <div id="interaction-zone" class="interaction-zone hidden">
+            <div class="fingerprint-guide">
+                <svg viewBox="0 0 100 100" class="fingerprint-icon">
+                    <path d="M50 20C33.4 20 20 33.4 20 50s13.4 30 30 30 30-13.4 30-30S66.6 20 50 20zm0 55c-13.8 0-25-11.2-25-25s11.2-25 25-25 25 11.2 25 25-11.2 25-25 25z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="50" cy="50" r="15" fill="currentColor" opacity="0.5" class="inner-pulse"/>
+                </svg>
+                <span class="instruction">Press & Hold</span>
+            </div>
+        </div>
+
+        <div id="envelope-stage" class="envelope-wrapper hidden">
+            <div class="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-pocket"></div>
+                
+                <div class="letter-paper">
+                    <div class="letter-pattern"></div>
+                    <div class="letter-text" id="letter-text-content">
+                        <p class="greeting">My Dearest Roshogolla,</p>
+                        <p class="body-text">
+                            My lips can't wait to touch your juicy lips,<br>
+                            My lips touching your warm and tasty lips<br>
+                            I can't wait.... The wait is too long....<br>
+                            The first kiss will always be special for me....<br>
+                            28th September 2025 💋
+                            <br><br>
+                            This envelope holds all the kisses<br>
+                            I am saving for the moment<br>
+                            We finally meet.
+                        </p>
+                        <p class="signature">Yours Bhondukumar, Always.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="kiss-seal" class="kiss-seal">
+                <svg viewBox="0 0 100 60" fill="currentColor">
+                    <path d="M50,45 C70,45 85,35 90,25 C95,15 80,10 70,15 C60,20 55,25 50,30 C45,25 40,20 30,15 C20,10 5,15 10,25 C15,35 30,45 50,45 Z M50,48 C25,48 5,35 0,25 C-2,15 10,0 30,5 C40,8 45,15 50,20 C55,15 60,8 70,5 C90,0 102,15 100,25 C95,35 75,48 50,48 Z" />
+                </svg>
+            </div>
+            <div class="click-hint" id="click-hint">Click the kiss</div>
+            
+            <button id="restart-btn" class="restart-btn hidden">Read Again ↻</button>
+        </div>
+
+    </main>
+
+    <button id="start-btn" class="start-overlay">
+        <span>Enter the night</span>
+    </button>
+    
+    <audio id="bgm-pad" loop><source src="music.mp3" type="audio/mpeg"></audio>
+    <audio id="sfx-heart" loop><source src="assets/heartbeat.mp3" type="audio/mpeg"></audio>
+    <audio id="sfx-build"><source src="assets/tension_build.mp3" type="audio/mpeg"></audio>
+    <audio id="sfx-kiss"><source src="assets/kiss_impact.mp3" type="audio/mpeg"></audio>
+
+    <template id="kiss-template">
+        <svg class="kiss-icon" viewBox="0 0 200 120" fill="currentColor">
+             <path d="M50,65 Q70,40 95,45 T140,55 Q160,65 150,80 T105,85 Q80,90 50,75 Z" />
+        </svg>
+    </template>
+
+    <template id="heart-template">
+        <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
